@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>at.pali.alfresco.share.clipboard</groupId>
+    <artifactId>clipboard-widget</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+    <packaging>swf</packaging>
+
+    <name>Alfresco Clipboard Widget</name>
+    <description>Adobe ActionScript3 project for the Alfresco Share clipboard widget</description>
+    
+    <scm>
+		<url>https://github.com/Sheldor5/alfresco-share-clipboard-widget</url>
+		<connection>scm:git:git://github.com/Sheldor5/alfresco-share-clipboard-widget.git</connection>
+		<developerConnection>scm:git:git@github.com:Sheldor5/alfresco-share-clipboard-widget.git</developerConnection>
+	</scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <flex.sdk.version>4.5.1.21328</flex.sdk.version>
+        <flexmojos.version>4.0-RC2</flexmojos.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>flex-mojos-repository</id>
+            <url>http://repository.sonatype.org/content/groups/flexgroup</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.adobe.flex.framework</groupId>
+            <artifactId>flex-framework</artifactId>
+            <version>${flex.sdk.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/actionscript</sourceDirectory>
+        <testSourceDirectory>src/test/actionscript</testSourceDirectory>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.sonatype.flexmojos</groupId>
+                <artifactId>flexmojos-maven-plugin</artifactId>
+                <version>${flexmojos.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <sourceFile>at/pali/alfresco/share/widget/Clipboard.as</sourceFile>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
